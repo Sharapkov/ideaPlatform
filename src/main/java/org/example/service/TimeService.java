@@ -20,7 +20,7 @@ public class TimeService {
         this.parser = parser;
     }
 
-    public void fromVladivostokToTelAviv() {
+    public void findMinTimeOfFlight() {
 
         List<TicketDto> ticketsDto = parser.parseTickets();
         List<Ticket> tickets = ticketMapper.toListEntity(ticketsDto);

@@ -14,7 +14,7 @@ public class Main {
         TimeService timeService = new TimeService(ticketMapper, parser);
         PriceService priceService = new PriceService(ticketMapper, parser);
 
-        timeService.fromVladivostokToTelAviv();
+        timeService.findMinTimeOfFlight();
         System.out.println();
         priceService.comparePrices();
 
