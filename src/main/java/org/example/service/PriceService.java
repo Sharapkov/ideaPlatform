@@ -5,8 +5,6 @@ import org.example.mapper.TicketMapper;
 import org.example.model.Ticket;
 import org.example.util.Parser;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PriceService {
@@ -40,11 +38,12 @@ public class PriceService {
     }
 
     private long calculateMedian(List<Ticket> tickets) {
-        List<Long> prices = new ArrayList<>();
-        for (Ticket ticket : tickets) {
-            prices.add(ticket.getPrice());
-        }
-        Collections.sort(prices);
+        List<Long> prices = tickets.stream()
+                .mapToLong(Ticket::getPrice)
+                .boxed()
+                .sorted()
+                .toList();
+
         int medianIndex = prices.size()/2;
 
         if (prices.size() % 2 == 0) {
