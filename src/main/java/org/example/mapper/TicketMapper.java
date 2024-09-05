@@ -63,9 +63,10 @@ public class TicketMapper {
 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yy");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-        String str = "0";
+
 
         if (localTime.length() < 5) {
+            String str = "0";
             localTime = str.concat(localTime);
         }
 
